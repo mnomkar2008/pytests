@@ -1,0 +1,5 @@
+
+Fixtures
+	- fixtures are functions that are created using @pytest.fixture
+	- test functions that require fixtures should accept fixture as an argument
+	
