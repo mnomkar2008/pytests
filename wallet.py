@@ -4,17 +4,31 @@ class NotEnoughMoney(Exception):
 
 class Wallet(object):
 
+    # Constructor
     def __init__(self, amount=0):
         self.balance = amount
 
     def final_balance(self):
+        """
+        Returns whatever balance 
+        left in the wallet.
+        """
         return self.balance
 
     def deposit(self, amount=0):
+        """
+        Entered amount will be added
+        the the balance amount.
+        """
         self.balance += amount
         return self.balance
 
     def withdraw(self, amount=0):
+        """
+        Withdraws the amount.
+        If existing balance is less than 
+        the amount then raises an exception.
+        """
         if self.balance < amount:
             raise NotEnoughMoney("Less balance than amount to spend, cannot withdraw..")
 
@@ -32,8 +46,8 @@ def main():
     print "After deposit, balance in my account :", moneyObj.final_balance()
     moneyObj.withdraw(5000); print "After deposit, balance in my account :", moneyObj.final_balance()
     # Withdrawing deposit from the account
-    #moneyObj.withdraw(3000)
-    #print "After deposit, balance in my account :", moneyObj.final_balance()
+    # moneyObj.withdraw(3000)
+    # print "After deposit, balance in my account :", moneyObj.final_balance()
 
 if __name__ == '__main__':
   main()
